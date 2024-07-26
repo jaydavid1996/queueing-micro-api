@@ -1,0 +1,2089 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "EBOS API",
+        "contact": {
+            "name": "Support Team",
+            "email": "support@example.com"
+        },
+        "version": "0.0.0"
+    },
+    "paths": {
+        "/api/v1/barangays": {
+            "get": {
+                "tags": [
+                    "Barangay"
+                ],
+                "summary": "Get all barangays",
+                "operationId": "getBarangays",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_page": {
+                                            "format": "string",
+                                            "example": 1
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "format": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "format": "uuid",
+                                                        "example": "1"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "first_page_url": {
+                                            "format": "string",
+                                            "example": "http://localhost:8000/api/v1/barangays?page=1"
+                                        },
+                                        "from": {
+                                            "format": "string",
+                                            "example": null
+                                        },
+                                        "last_page": {
+                                            "format": "integer",
+                                            "example": 1
+                                        },
+                                        "last_page_url": {
+                                            "format": "string",
+                                            "example": "http://localhost:8000/api/v1/barangays?page=1"
+                                        },
+                                        "next_page_url": {
+                                            "format": "string",
+                                            "example": null
+                                        },
+                                        "per_page": {
+                                            "format": "integer",
+                                            "example": 20
+                                        },
+                                        "total": {
+                                            "format": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/notauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Barangay"
+                ],
+                "summary": "Create a Barangay",
+                "operationId": "dd03c7b7f1cff987c39f2cf10af83256",
+                "requestBody": {
+                    "description": "Pass barangay information",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Angels City"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "123 Street"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully Added Barangay.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Complaints retrieved successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "name": {
+                                                    "format": "string",
+                                                    "example": "Angeles City"
+                                                },
+                                                "address": {
+                                                    "format": "string",
+                                                    "example": "123 Street"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/barangays/{barangay_id}": {
+            "get": {
+                "tags": [
+                    "Barangay"
+                ],
+                "summary": "Get one barangay",
+                "operationId": "5afa87e1fcd28eb0e602561afcdf9b6d",
+                "parameters": [
+                    {
+                        "name": "barangay_id",
+                        "in": "path",
+                        "description": "Barangay ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Barangay retrieved successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Barangay"
+                ],
+                "summary": "Update a Barangay",
+                "operationId": "a7228dffe82a86c61393d91893fe89b3",
+                "parameters": [
+                    {
+                        "name": "barangay_id",
+                        "in": "path",
+                        "description": "Barangay ID",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass barangay information",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Angels City"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "123 Street"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully Updated Barangay.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Complaints retrieved successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "name": {
+                                                    "format": "string",
+                                                    "example": "Angeles City"
+                                                },
+                                                "address": {
+                                                    "format": "string",
+                                                    "example": "123 Street"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Login Manaul",
+                "operationId": "loginManual",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/AuthArray"
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns JWT"
+                    }
+                }
+            }
+        },
+        "/api/v1/refreshtoken": {
+            "get": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Refresh Token",
+                "operationId": "refreshToken",
+                "responses": {
+                    "200": {
+                        "description": "Returns JWT"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/residents/{resident_id}/complaints": {
+            "get": {
+                "tags": [
+                    "Resident Complaints"
+                ],
+                "summary": "Get all complaints",
+                "operationId": "c57b6bcadb77e27357f2d3125ade0c4e",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_page": {
+                                            "format": "string",
+                                            "example": 1
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "format": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "format": "uuid",
+                                                        "example": "1"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "first_page_url": {
+                                            "format": "string",
+                                            "example": "http://localhost:8000/api/v1/barangays?page=1"
+                                        },
+                                        "from": {
+                                            "format": "string",
+                                            "example": null
+                                        },
+                                        "last_page": {
+                                            "format": "integer",
+                                            "example": 1
+                                        },
+                                        "last_page_url": {
+                                            "format": "string",
+                                            "example": "http://localhost:8000/api/v1/barangays?page=1"
+                                        },
+                                        "next_page_url": {
+                                            "format": "string",
+                                            "example": null
+                                        },
+                                        "per_page": {
+                                            "format": "integer",
+                                            "example": 20
+                                        },
+                                        "total": {
+                                            "format": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Resident Complaints"
+                ],
+                "summary": "Create a complaint",
+                "operationId": "e1e0574cfa1aac3503260c9edce3c0db",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass queue",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "complaint": {
+                                        "type": "string",
+                                        "example": "My complaint"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully Queued",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Complaints retrieved successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "resident_id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "status": {
+                                                    "format": "string",
+                                                    "example": "onqueue"
+                                                },
+                                                "is_priority": {
+                                                    "format": "boolean",
+                                                    "example": "1"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/residents/{resident_id}/complaints/{complaint_id}": {
+            "get": {
+                "tags": [
+                    "Resident Complaints"
+                ],
+                "summary": "Get one complaint",
+                "operationId": "2ba17fa25584a51ae65ff101f718a661",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "complaint_id",
+                        "in": "path",
+                        "description": "Complaint ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Complaints retrieved successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "resident_id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "status": {
+                                                    "format": "string",
+                                                    "example": "(onqueue/inprogress/complete/cancelled)"
+                                                },
+                                                "is_priority": {
+                                                    "format": "boolean",
+                                                    "example": "true"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Resident Complaints"
+                ],
+                "summary": "Update a complaint",
+                "operationId": "ac1eb04d7192119b04080fd0352087f7",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "complaint_id",
+                        "in": "path",
+                        "description": "Complaint ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass queue",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "complaint": {
+                                        "type": "string",
+                                        "example": "My complaint"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully Updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Complaints retrieved successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "resident_id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "status": {
+                                                    "format": "string",
+                                                    "example": "onqueue"
+                                                },
+                                                "is_priority": {
+                                                    "format": "boolean",
+                                                    "example": "1"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/residents": {
+            "get": {
+                "tags": [
+                    "Residents"
+                ],
+                "summary": "Get All Resident",
+                "operationId": "getAllResident",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_page": {
+                                            "format": "string",
+                                            "example": 1
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "format": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "format": "uuid",
+                                                        "example": "1"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "first_page_url": {
+                                            "format": "string",
+                                            "example": "http://localhost:8000/api/v1/barangays?page=1"
+                                        },
+                                        "from": {
+                                            "format": "string",
+                                            "example": null
+                                        },
+                                        "last_page": {
+                                            "format": "integer",
+                                            "example": 1
+                                        },
+                                        "last_page_url": {
+                                            "format": "string",
+                                            "example": "http://localhost:8000/api/v1/barangays?page=1"
+                                        },
+                                        "next_page_url": {
+                                            "format": "string",
+                                            "example": null
+                                        },
+                                        "per_page": {
+                                            "format": "integer",
+                                            "example": 20
+                                        },
+                                        "total": {
+                                            "format": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/notauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Residents"
+                ],
+                "summary": "Add Resident",
+                "operationId": "addResident",
+                "requestBody": {
+                    "description": "Add Resident",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "first_name": {
+                                        "format": "string",
+                                        "example": "Juan"
+                                    },
+                                    "last_name": {
+                                        "format": "string",
+                                        "example": "Dela Cruz"
+                                    },
+                                    "middle_name": {
+                                        "format": "string",
+                                        "example": "Dela Cruz"
+                                    },
+                                    "address1": {
+                                        "format": "string",
+                                        "example": "Address 1"
+                                    },
+                                    "address2": {
+                                        "format": "string",
+                                        "example": "Address 2"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns Success Message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Resident data"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "resident_id": {
+                                                    "format": "string",
+                                                    "example": "00000-0000000-0000-00-00000"
+                                                },
+                                                "first_name": {
+                                                    "format": "string",
+                                                    "example": "Juan"
+                                                },
+                                                "last_name": {
+                                                    "format": "string",
+                                                    "example": "Dela Cruz"
+                                                },
+                                                "middle_name": {
+                                                    "format": "string",
+                                                    "example": "Dela Cruz"
+                                                },
+                                                "email": {
+                                                    "format": "string",
+                                                    "example": "example@email.com"
+                                                },
+                                                "contact_number": {
+                                                    "format": "string",
+                                                    "example": "09123456789"
+                                                },
+                                                "address1": {
+                                                    "format": "string",
+                                                    "example": "Address 1"
+                                                },
+                                                "address2": {
+                                                    "format": "string",
+                                                    "example": "Address 2"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "format": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/notauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/residents/{resident_id}": {
+            "get": {
+                "tags": [
+                    "Residents"
+                ],
+                "summary": "Get Specific Resident",
+                "operationId": "getOneResident",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns Success Message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Resident data"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "resident_id": {
+                                                    "format": "string",
+                                                    "example": "00000-0000000-0000-00-00000"
+                                                },
+                                                "first_name": {
+                                                    "format": "string",
+                                                    "example": "Juan"
+                                                },
+                                                "last_name": {
+                                                    "format": "string",
+                                                    "example": "Dela Cruz"
+                                                },
+                                                "middle_name": {
+                                                    "format": "string",
+                                                    "example": "Dela Cruz"
+                                                },
+                                                "email": {
+                                                    "format": "string",
+                                                    "example": "example@emai.com"
+                                                },
+                                                "contact_number": {
+                                                    "format": "string",
+                                                    "example": "09123456789"
+                                                },
+                                                "address1": {
+                                                    "format": "string",
+                                                    "example": "Address 1"
+                                                },
+                                                "address2": {
+                                                    "format": "string",
+                                                    "example": "Address 2"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "format": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/notauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Residents"
+                ],
+                "summary": "Update Resident",
+                "operationId": "updateResident",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update Resident",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "format": "string",
+                                        "example": "Juan Dela Cruz"
+                                    },
+                                    "address1": {
+                                        "format": "string",
+                                        "example": "Address 1"
+                                    },
+                                    "address2": {
+                                        "format": "string",
+                                        "example": "Address 2"
+                                    },
+                                    "first_name": {
+                                        "format": "string",
+                                        "example": "Juan"
+                                    },
+                                    "last_name": {
+                                        "format": "string",
+                                        "example": "Dela Cruz"
+                                    },
+                                    "middle_name": {
+                                        "format": "string",
+                                        "example": "Dela Cruz"
+                                    },
+                                    "email": {
+                                        "format": "string",
+                                        "example": "example@email.com"
+                                    },
+                                    "contact_number": {
+                                        "format": "string",
+                                        "example": "09123456789"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns Success Message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Resident data"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "resident_id": {
+                                                    "format": "string",
+                                                    "example": "00000-0000000-0000-00-00000"
+                                                },
+                                                "first_name": {
+                                                    "format": "string",
+                                                    "example": "Juan"
+                                                },
+                                                "last_name": {
+                                                    "format": "string",
+                                                    "example": "Dela Cruz"
+                                                },
+                                                "middle_name": {
+                                                    "format": "string",
+                                                    "example": "Dela Cruz"
+                                                },
+                                                "email": {
+                                                    "format": "string",
+                                                    "example": "example@email.com"
+                                                },
+                                                "contact_number": {
+                                                    "format": "string",
+                                                    "example": "09123456789"
+                                                },
+                                                "address1": {
+                                                    "format": "string",
+                                                    "example": "Address 1"
+                                                },
+                                                "address2": {
+                                                    "format": "string",
+                                                    "example": "Address 2"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "format": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/notauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/residents/{resident_id}/documents": {
+            "get": {
+                "tags": [
+                    "Resident Documents"
+                ],
+                "summary": "Get all documents",
+                "operationId": "10fddbd9f0a0ed0a1f4b8ffe2cffab30",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_page": {
+                                            "format": "string",
+                                            "example": 1
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "format": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "format": "uuid",
+                                                        "example": "1"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "first_page_url": {
+                                            "format": "string",
+                                            "example": "http://localhost:8000/api/v1/barangays?page=1"
+                                        },
+                                        "from": {
+                                            "format": "string",
+                                            "example": null
+                                        },
+                                        "last_page": {
+                                            "format": "integer",
+                                            "example": 1
+                                        },
+                                        "last_page_url": {
+                                            "format": "string",
+                                            "example": "http://localhost:8000/api/v1/barangays?page=1"
+                                        },
+                                        "next_page_url": {
+                                            "format": "string",
+                                            "example": null
+                                        },
+                                        "per_page": {
+                                            "format": "integer",
+                                            "example": 20
+                                        },
+                                        "total": {
+                                            "format": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Resident Documents"
+                ],
+                "summary": "Create a document",
+                "operationId": "480af79b55a6fded502e2f4c516883ea",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass queue",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "document": {
+                                        "type": "string",
+                                        "example": "My document"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully Queued",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Documents retrieved successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "resident_id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "status": {
+                                                    "format": "string",
+                                                    "example": "onqueue"
+                                                },
+                                                "is_priority": {
+                                                    "format": "boolean",
+                                                    "example": "1"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/residents/{resident_id}/documents/{document_id}": {
+            "get": {
+                "tags": [
+                    "Resident Documents"
+                ],
+                "summary": "Get one document",
+                "operationId": "15dfb45a36afb06a2071cae8f9dc760a",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "document_id",
+                        "in": "path",
+                        "description": "Document ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Documents retrieved successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "resident_id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "status": {
+                                                    "format": "string",
+                                                    "example": "(onqueue/inprogress/complete/cancelled)"
+                                                },
+                                                "is_priority": {
+                                                    "format": "boolean",
+                                                    "example": "1"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Resident Documents"
+                ],
+                "summary": "Update a document",
+                "operationId": "de56c01f285ecbdc80d7061a898d1262",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "document_id",
+                        "in": "path",
+                        "description": "Document ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass queue",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "document": {
+                                        "type": "string",
+                                        "example": "My document"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully Updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Documents retrieved successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "resident_id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "status": {
+                                                    "format": "string",
+                                                    "example": "onqueue"
+                                                },
+                                                "is_priority": {
+                                                    "format": "boolean",
+                                                    "example": "1"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/residents/{resident_id}/records": {
+            "get": {
+                "tags": [
+                    "Resident Records"
+                ],
+                "summary": "Get all records",
+                "operationId": "3a3f498d79253d92e25899e4b45782b8",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_page": {
+                                            "format": "string",
+                                            "example": 1
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "format": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "format": "uuid",
+                                                        "example": "1"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "first_page_url": {
+                                            "format": "string",
+                                            "example": "http://localhost:8000/api/v1/barangays?page=1"
+                                        },
+                                        "from": {
+                                            "format": "string",
+                                            "example": null
+                                        },
+                                        "last_page": {
+                                            "format": "integer",
+                                            "example": 1
+                                        },
+                                        "last_page_url": {
+                                            "format": "string",
+                                            "example": "http://localhost:8000/api/v1/barangays?page=1"
+                                        },
+                                        "next_page_url": {
+                                            "format": "string",
+                                            "example": null
+                                        },
+                                        "per_page": {
+                                            "format": "integer",
+                                            "example": 20
+                                        },
+                                        "total": {
+                                            "format": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Resident Records"
+                ],
+                "summary": "Create a record",
+                "operationId": "1e923563ba3cad3b921dac0b0a1c12c4",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass queue",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "record": {
+                                        "type": "string",
+                                        "example": "My record"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully Queued",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Records retrieved successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "resident_id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "status": {
+                                                    "format": "string",
+                                                    "example": "onqueue"
+                                                },
+                                                "is_priority": {
+                                                    "format": "boolean",
+                                                    "example": "1"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/residents/{resident_id}/records/{record_id}": {
+            "get": {
+                "tags": [
+                    "Resident Records"
+                ],
+                "summary": "Get one record",
+                "operationId": "eaf7e57680676e27041a2ee934ce91c9",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "record_id",
+                        "in": "path",
+                        "description": "Record ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Records retrieved successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "resident_id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "status": {
+                                                    "format": "string",
+                                                    "example": "(onqueue/inprogress/complete/cancelled)"
+                                                },
+                                                "is_priority": {
+                                                    "format": "boolean",
+                                                    "example": "1"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Resident Records"
+                ],
+                "summary": "Update a record",
+                "operationId": "8ecfcbc1240c4efd2d65a87524b70f33",
+                "parameters": [
+                    {
+                        "name": "resident_id",
+                        "in": "path",
+                        "description": "Resident ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "record_id",
+                        "in": "path",
+                        "description": "Record ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass queue",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "record": {
+                                        "type": "string",
+                                        "example": "My record"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully Updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "format": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "format": "string",
+                                            "example": "Records retrieved successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "resident_id": {
+                                                    "format": "uuid",
+                                                    "example": "d0b0c8c0-5f5a-4a5a-9b1a-3c1b0f7f5f1a"
+                                                },
+                                                "status": {
+                                                    "format": "string",
+                                                    "example": "onqueue"
+                                                },
+                                                "is_priority": {
+                                                    "format": "boolean",
+                                                    "example": "1"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/transactions/queue?type={type}&barangay_id={barangay_id}&status={status}&is_priority={is_priority}": {
+            "get": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Get all transactions on queue",
+                "description": "Returns all transactions on queue",
+                "operationId": "getQueue",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Transaction type (Records = 1, Document = 2, Complaint = 3)",
+                        "required": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "",
+                            "enum": [
+                                "",
+                                "1",
+                                "2",
+                                "3"
+                            ]
+                        },
+                        "example": ""
+                    },
+                    {
+                        "name": "barangay_id",
+                        "in": "query",
+                        "description": "Barangay ID",
+                        "required": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "status",
+                        "required": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "onqueue",
+                            "enum": [
+                                "onqueue",
+                                "completed",
+                                "cancelled"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "is_priority",
+                        "in": "query",
+                        "description": "priority",
+                        "required": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "true",
+                                "false"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_page": {
+                                            "format": "string",
+                                            "example": 1
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "format": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "format": "uuid",
+                                                        "example": "1"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "first_page_url": {
+                                            "format": "string",
+                                            "example": "http://localhost:8000/api/v1/barangays?page=1"
+                                        },
+                                        "from": {
+                                            "format": "string",
+                                            "example": null
+                                        },
+                                        "last_page": {
+                                            "format": "integer",
+                                            "example": 1
+                                        },
+                                        "last_page_url": {
+                                            "format": "string",
+                                            "example": "http://localhost:8000/api/v1/barangays?page=1"
+                                        },
+                                        "next_page_url": {
+                                            "format": "string",
+                                            "example": null
+                                        },
+                                        "per_page": {
+                                            "format": "integer",
+                                            "example": 20
+                                        },
+                                        "total": {
+                                            "format": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/notauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/transactions/{transaction_id}/cancel": {
+            "post": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Cancel Transaction",
+                "description": "Cancel Transaction",
+                "operationId": "cancelTransaction",
+                "parameters": [
+                    {
+                        "name": "transaction_id",
+                        "in": "path",
+                        "description": "Transaction ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "e4a3b2c1-3d2e-4f1a-9e9b-8c7d6a5b4c3d"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully cancelled transaction.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Successfully cancelled transaction."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/notauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/transactions/{transaction_id}/complete": {
+            "post": {
+                "tags": [
+                    "Transactions"
+                ],
+                "summary": "Complete Transaction",
+                "description": "Complete Transaction",
+                "operationId": "completeTransaction",
+                "parameters": [
+                    {
+                        "name": "transaction_id",
+                        "in": "path",
+                        "description": "Transaction ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "e4a3b2c1-3d2e-4f1a-9e9b-8c7d6a5b4c3d"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully completed transaction.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Successfully completed transaction."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/components/responses/notauthenticated"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "responses": {
+            "notauthenticated": {
+                "description": "Respone for Unauthenticated User",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "code": {
+                                    "format": "string",
+                                    "example": "401"
+                                },
+                                "message": {
+                                    "format": "string",
+                                    "example": "You're unauthorized to make a request!"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "requestBodies": {
+            "AuthArray": {
+                "description": "Auth Paramerters",
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "email": {
+                                    "title": "Email",
+                                    "description": "Email",
+                                    "format": "string",
+                                    "example": "matt@gmail.com"
+                                },
+                                "password": {
+                                    "title": "Password",
+                                    "description": "password",
+                                    "format": "string",
+                                    "example": "a123456"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Authentication",
+            "description": "Auth endpoints"
+        },
+        {
+            "name": "Transactions",
+            "description": "EBOS Transaction Services endpoints"
+        },
+        {
+            "name": "Residents",
+            "description": "EBOS Resident Services endpoints"
+        },
+        {
+            "name": "Resident Records",
+            "description": "EBOS Resident Services endpoints"
+        },
+        {
+            "name": "Resident Documents",
+            "description": "EBOS Resident Services endpoints"
+        },
+        {
+            "name": "Resident Complaints",
+            "description": "EBOS Resident Services endpoints"
+        }
+    ]
+}

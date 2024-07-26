@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" backupStaticAttributes="false" bootstrap="bootstrap/app.php" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage processUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">./app</directory>
+    </include>
+  </coverage>
+  <testsuites>
+    <testsuite name="Application Test Suite">
+      <directory suffix="Test.php">./tests</directory>
+    </testsuite>
+  </testsuites>
+  <php>
+    <env name="APP_ENV" value="testing"/>
+    <env name="CACHE_DRIVER" value="array"/>
+    <env name="QUEUE_CONNECTION" value="sync"/>
+    <env name="DB_CONNECTION" value="mysql"/>
+    <env name="DB_DATABASE" value="test_database"/>
+    <env name="API_DEBUG" value="false"/>
+    <env name="JWT_SECRET" value="TESTnbeu0oH7U8YuPOupsykB7KnIlXvQGN6n8GxVDXxyeGYWbjblCNn21o6UKLj2n3qn"/>
+    <env name="MAIL_DRIVER" value="log"/>
+    <ini name="SMART_USERNAME" value="test@gmail.com"/>
+    <ini name="memory_limit" value="512M"/>
+  </php>
+</phpunit>
