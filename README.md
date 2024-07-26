@@ -1,11 +1,94 @@
-# Lumen PHP Framework
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/lumen-framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/lumen)](https://packagist.org/packages/laravel/lumen-framework)
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+# Barangay Queue System API
+
+Welcome to the Barangay Queue System API project! This project provides a robust and efficient backend solution for managing barangay queues, utilizing the Lumen PHP framework, WebSocket for real-time communication, Docker for containerization, and Nginx for web serving.
+
+## Features
+
+- **Lumen Framework:** Lightweight and fast PHP micro-framework for building the API.
+- **WebSocket Support:** Real-time updates and notifications for queue status and changes.
+- **Unit Testing:** Comprehensive testing suite integrated into the Git workflow to ensure code reliability.
+- **Dockerized Environment:** Easy setup and consistent environments using Docker.
+- **Nginx Container:** Serves the application with improved performance and scalability.
+
+## Technical Stack
+
+- **Backend Framework:** Lumen PHP
+- **Real-Time Communication:** WebSocket
+- **Containerization:** Docker
+- **Web Server:** Nginx
+- **Version Control & CI/CD:** Git with unit testing and automated workflows
+
+## Installation
+
+### Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Setup
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone <https://github.com/jaydavid1996/queueing-micro-api.git>
+   cd <repository-directory>
+   ```
+
+2. **Build and Run Docker Containers:**
+
+   ```bash
+   docker-compose up --build
+   ```
+
+   This command will build the Docker images and start the containers for the API and Nginx server.
+
+3. **Access the API:**
+
+   Once the containers are up and running, the API will be accessible at `http://localhost:8000` or the specified port in your `docker-compose.yml` file.
+
+## WebSocket Integration
+
+- **WebSocket Endpoint:** The WebSocket server runs alongside the API, providing real-time updates on queue status. Ensure your client connects to the WebSocket server to receive these updates.
+
+## Running Tests
+
+To ensure the API's functionality and stability, unit tests are included. Run the tests using:
+
+```bash
+docker-compose exec app ./vendor/bin/phpunit
+```
+
+This command runs the test suite within the Docker container.
+
+## Git Workflow
+
+- **Branching:** Use feature branches for new developments. Merge changes into the `main` branch after passing tests.
+- **Pull Requests:** Create pull requests for code reviews before merging changes.
+
+## Contributing
+
+We welcome contributions to improve the Barangay Queue System API. Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Commit your changes and push to your fork.
+4. Open a pull request against the `main` branch.
+
+Refer to the [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). See the LICENSE file for more details.
+
+## Contact
+
+For any questions or support, please reach out to [jaydavid1996@gmail.com](mailto:jaydavid1996@gmail.com).
+
+---
+
+Feel free to modify the placeholders such as `<https://github.com/jaydavid1996/queueing-micro-api.git>`, `<repository-directory>`, and `[jaydavid1996@gmail.com]` as per your actual project details.
 
 ## Official Documentation
 
